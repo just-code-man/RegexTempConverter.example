@@ -13,7 +13,7 @@ namespace ConsoleExample
         {
             string temp = "My name is #Name#";
 
-            IRegexTemp tp = RegexTempFactory.Greate("test", new TempEngineBuilderConfig
+            IRegexTemp tp = RegexTempFactory.Create("test", new TempEngineBuilderConfig
             {
                 Pattern = "#(\\S*)#",
                 Template = temp,
