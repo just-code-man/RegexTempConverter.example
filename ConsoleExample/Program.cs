@@ -11,9 +11,9 @@ namespace ConsoleExample
     {
         static void Main(string[] args)
         {
-            string temp = "My name is #Name#";
+            string temp = "My name is #Name#, #Name#";
 
-            IRegexTemp tp = RegexTempFactory.Greate("test", new TempEngineBuilderConfig
+            IRegexTemp tp = RegexTempFactory.Create("test", new TempEngineBuilderConfig
             {
                 Pattern = "#(\\S*)#",
                 Template = temp,
@@ -21,7 +21,7 @@ namespace ConsoleExample
 
             var paramBuilder = tp.CreateParamBuilder();
 
-            paramBuilder.IfExist("Name", "Luke");
+            paramBuilder.IfExist("Name", new List<string> { "Luke", "stranger" }, ValueSetOption.MultipleInOrder);
 
             var tm = paramBuilder.Build();
 
